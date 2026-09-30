@@ -117,7 +117,7 @@ Return ONLY a valid JSON object matching this exact schema:
 `;
 
     // Call Google Gemini API
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${geminiApiKey}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${geminiApiKey}`;
 
     const response = await fetch(geminiUrl, {
       method: "POST",
