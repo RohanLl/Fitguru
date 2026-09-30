@@ -10,7 +10,8 @@ import {
   ScrollView,
   ActivityIndicator,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { FitGuruLogo } from '../components/FitGuruLogo';
+import { ModernIcon } from '../components/ModernIcon';
 import { useAuth } from '../context/AuthContext';
 import { isSupabaseConfigured } from '../services/supabase';
 import { Colors } from '../theme/colors';
@@ -57,9 +58,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onOpenSettings }) => {
       <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
         {/* Top Header & Branding */}
         <View style={styles.brandContainer}>
-          <View style={styles.logoCircle}>
-            <Ionicons name="barbell" size={36} color={Colors.primary} />
-          </View>
+          <FitGuruLogo size={76} glow={true} style={{ marginBottom: 14 }} />
           <Text style={styles.brandName}>FITGURU</Text>
           <Text style={styles.brandTagline}>AI-Powered Precision Training</Text>
         </View>
@@ -73,7 +72,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onOpenSettings }) => {
             </Text>
           </View>
           <TouchableOpacity onPress={onOpenSettings} style={styles.configBtn}>
-            <Ionicons name="settings-outline" size={15} color={Colors.textSecondary} />
+            <ModernIcon name="settings" size={15} color={Colors.textSecondary} />
             <Text style={styles.configBtnText}>Config</Text>
           </TouchableOpacity>
         </View>
@@ -106,7 +105,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onOpenSettings }) => {
           {/* Error Banner */}
           {errorMessage && (
             <View style={styles.errorBox}>
-              <Ionicons name="alert-circle" size={16} color={Colors.danger} />
+              <ModernIcon name="close" size={16} color={Colors.danger} />
               <Text style={styles.errorText}>{errorMessage}</Text>
             </View>
           )}
@@ -114,7 +113,9 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onOpenSettings }) => {
           {/* Inputs */}
           <Text style={styles.label}>Email Address</Text>
           <View style={styles.inputWrapper}>
-            <Ionicons name="mail-outline" size={18} color={Colors.textSecondary} style={styles.inputIcon} />
+            <View style={styles.inputIcon}>
+              <ModernIcon name="mail" size={18} color={Colors.textSecondary} />
+            </View>
             <TextInput
               style={styles.input}
               placeholder="you@example.com"
@@ -128,7 +129,9 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onOpenSettings }) => {
 
           <Text style={styles.label}>Password</Text>
           <View style={styles.inputWrapper}>
-            <Ionicons name="lock-closed-outline" size={18} color={Colors.textSecondary} style={styles.inputIcon} />
+            <View style={styles.inputIcon}>
+              <ModernIcon name="lock" size={18} color={Colors.textSecondary} />
+            </View>
             <TextInput
               style={styles.input}
               placeholder="••••••••"
@@ -142,8 +145,8 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onOpenSettings }) => {
               onPress={() => setShowPassword(!showPassword)}
               style={styles.eyeBtn}
             >
-              <Ionicons
-                name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+              <ModernIcon
+                name={showPassword ? 'eye-off' : 'eye'}
                 size={18}
                 color={Colors.textSecondary}
               />
@@ -177,7 +180,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onOpenSettings }) => {
             onPress={continueAsGuest}
             activeOpacity={0.8}
           >
-            <Ionicons name="flash-outline" size={18} color={Colors.cyan} />
+            <ModernIcon name="sparkles" size={18} color={Colors.cyan} />
             <Text style={styles.guestBtnText}>Continue as Guest / Offline Preview</Text>
           </TouchableOpacity>
         </View>

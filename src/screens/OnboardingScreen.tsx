@@ -8,7 +8,7 @@ import {
   TextInput,
   Platform,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ModernIcon } from '../components/ModernIcon';
 import * as Haptics from 'expo-haptics';
 import {
   UserProfile,
@@ -140,7 +140,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
       >
         {/* Intro Banner */}
         <View style={styles.banner}>
-          <Ionicons name="sparkles" size={20} color={Colors.primary} />
+          <ModernIcon name="sparkles" size={20} color={Colors.primary} />
           <Text style={styles.bannerText}>
             FitGuru AI calibrates your program volume, exercise selection, and recovery intervals based on your exact biometrics.
           </Text>
@@ -159,8 +159,8 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
               }}
               activeOpacity={0.7}
             >
-              <Ionicons
-                name={g === 'male' ? 'man' : g === 'female' ? 'woman' : 'person'}
+              <ModernIcon
+                name={g === 'male' ? 'male' : g === 'female' ? 'female' : 'person'}
                 size={22}
                 color={gender === g ? Colors.primary : Colors.textSecondary}
               />
@@ -180,7 +180,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
               <Text style={styles.metricLabel}>Weight</Text>
               <TouchableOpacity onPress={toggleWeightUnit} style={styles.unitToggle}>
                 <Text style={styles.unitToggleText}>{weightUnit.toUpperCase()}</Text>
-                <Ionicons name="swap-horizontal" size={12} color={Colors.primary} />
+                <ModernIcon name="swap" size={12} color={Colors.primary} />
               </TouchableOpacity>
             </View>
             <View style={styles.inputBox}>
@@ -203,7 +203,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
                 <Text style={styles.unitToggleText}>
                   {heightUnit === 'cm' ? 'CM' : 'INCH'}
                 </Text>
-                <Ionicons name="swap-horizontal" size={12} color={Colors.primary} />
+                <ModernIcon name="swap" size={12} color={Colors.primary} />
               </TouchableOpacity>
             </View>
             <View style={styles.inputBox}>
@@ -233,7 +233,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
                 setAge((prev) => Math.max(14, prev - 1));
               }}
             >
-              <Ionicons name="remove" size={18} color={Colors.text} />
+              <ModernIcon name="remove" size={18} color={Colors.text} />
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.stepperBtn}
@@ -242,7 +242,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
                 setAge((prev) => Math.min(99, prev + 1));
               }}
             >
-              <Ionicons name="add" size={18} color={Colors.primary} />
+              <ModernIcon name="add" size={18} color={Colors.primary} />
             </TouchableOpacity>
           </View>
         </View>
@@ -290,8 +290,8 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
               }}
               activeOpacity={0.7}
             >
-              <Ionicons
-                name="time-outline"
+              <ModernIcon
+                name="time"
                 size={16}
                 color={duration === mins ? Colors.cyan : Colors.textSecondary}
               />
@@ -313,8 +313,8 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
           {[
             { id: 'hypertrophy', label: 'Muscle Growth', sub: 'Hypertrophy & Aesthetics', icon: 'barbell' },
             { id: 'fat_loss', label: 'Fat Loss', sub: 'Burn fat & preserve muscle', icon: 'flame' },
-            { id: 'strength', label: 'Pure Strength', sub: 'Heavy compounds & power', icon: 'flash' },
-            { id: 'general', label: 'General Health', sub: 'Functional strength & stamina', icon: 'heart' },
+            { id: 'strength', label: 'Pure Strength', sub: 'Heavy compounds & power', icon: 'sparkles' },
+            { id: 'general', label: 'General Health', sub: 'Functional strength & stamina', icon: 'fitness' },
           ].map((item) => (
             <TouchableOpacity
               key={item.id}
@@ -326,8 +326,8 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
               activeOpacity={0.7}
             >
               <View style={[styles.goalIconCircle, goal === item.id && styles.goalIconActive]}>
-                <Ionicons
-                  name={item.icon as any}
+                <ModernIcon
+                  name={item.icon}
                   size={18}
                   color={goal === item.id ? Colors.primary : Colors.textSecondary}
                 />
@@ -373,7 +373,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
           onPress={handleGenerate}
           activeOpacity={0.85}
         >
-          <Ionicons name="sparkles" size={20} color="#0B0F19" />
+          <ModernIcon name="sparkles" size={20} color="#0B0F19" />
           <Text style={styles.generateBtnText}>Build Custom Workout Plan</Text>
         </TouchableOpacity>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ModernIcon } from './ModernIcon';
 import * as Haptics from 'expo-haptics';
 import { Exercise } from '../types/fitness';
 import { Colors } from '../theme/colors';
@@ -58,7 +58,7 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({
               <Text style={styles.muscleText}>{exercise.targetMuscle}</Text>
             </View>
             <View style={styles.metricBadge}>
-              <Ionicons name="repeat-outline" size={12} color={Colors.cyan} />
+              <ModernIcon name="repeat" size={12} color={Colors.cyan} />
               <Text style={styles.metricText}>{exercise.sets} sets × {exercise.reps}</Text>
             </View>
           </View>
@@ -69,7 +69,7 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({
           onPress={handleTimerPress}
           activeOpacity={0.7}
         >
-          <Ionicons name="timer-outline" size={16} color={Colors.primary} />
+          <ModernIcon name="timer" size={15} color={Colors.primary} />
           <Text style={styles.timerText}>{exercise.restSeconds}s</Text>
         </TouchableOpacity>
       </View>
@@ -88,7 +88,7 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({
                 activeOpacity={0.6}
               >
                 {isDone ? (
-                  <Ionicons name="checkmark" size={14} color="#0B0F19" />
+                  <ModernIcon name="checkmark" size={14} color="#0B0F19" />
                 ) : (
                   <Text style={styles.setNumberText}>{sIdx + 1}</Text>
                 )}
@@ -106,14 +106,15 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({
             onPress={() => setExpanded(!expanded)}
             activeOpacity={0.7}
           >
-            <Ionicons name="bulb-outline" size={15} color={Colors.orange} />
+            <ModernIcon name="bulb" size={15} color={Colors.orange} />
             <Text style={styles.tipsToggleText}>Trainer Form Cue</Text>
-            <Ionicons
-              name={expanded ? 'chevron-up' : 'chevron-down'}
-              size={16}
-              color={Colors.textSecondary}
-              style={{ marginLeft: 'auto' }}
-            />
+            <View style={{ marginLeft: 'auto' }}>
+              <ModernIcon
+                name={expanded ? 'chevron-up' : 'chevron-down'}
+                size={16}
+                color={Colors.textSecondary}
+              />
+            </View>
           </TouchableOpacity>
 
           {expanded && (

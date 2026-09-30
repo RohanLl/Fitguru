@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Modal, TouchableOpacity, ScrollView } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ModernIcon } from './ModernIcon';
 import { NutritionGuidelines } from '../types/fitness';
 import { Colors } from '../theme/colors';
 
@@ -25,7 +25,7 @@ export const NutritionModal: React.FC<NutritionModalProps> = ({
           <View style={styles.header}>
             <View style={styles.titleRow}>
               <View style={styles.iconCircle}>
-                <Ionicons name="restaurant" size={20} color={Colors.primary} />
+                <ModernIcon name="restaurant" size={20} color={Colors.primary} />
               </View>
               <View>
                 <Text style={styles.title}>Nutrition & Macros</Text>
@@ -33,7 +33,7 @@ export const NutritionModal: React.FC<NutritionModalProps> = ({
               </View>
             </View>
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <Ionicons name="close" size={20} color={Colors.textSecondary} />
+              <ModernIcon name="close" size={20} color={Colors.textSecondary} />
             </TouchableOpacity>
           </View>
 
@@ -68,7 +68,7 @@ export const NutritionModal: React.FC<NutritionModalProps> = ({
 
             {/* Hydration Card */}
             <View style={styles.waterCard}>
-              <Ionicons name="water" size={24} color={Colors.cyan} />
+              <ModernIcon name="water" size={24} color={Colors.cyan} />
               <View style={{ flex: 1 }}>
                 <Text style={styles.waterTitle}>Daily Water Goal</Text>
                 <Text style={styles.waterSubtitle}>Stay hydrated to maximize muscle performance</Text>
@@ -82,7 +82,7 @@ export const NutritionModal: React.FC<NutritionModalProps> = ({
                 <Text style={styles.sectionHeader}>Nutrition Advice</Text>
                 {nutrition.tips.map((tip, idx) => (
                   <View key={idx} style={styles.tipRow}>
-                    <Ionicons name="checkmark-circle" size={16} color={Colors.primary} style={{ marginTop: 2 }} />
+                    <ModernIcon name="checkmark-circle" size={16} color={Colors.primary} />
                     <Text style={styles.tipText}>{tip}</Text>
                   </View>
                 ))}

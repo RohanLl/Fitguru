@@ -8,7 +8,7 @@ import {
   Platform,
   Alert,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ModernIcon } from '../components/ModernIcon';
 import * as Haptics from 'expo-haptics';
 import { WorkoutPlan } from '../types/fitness';
 import { Header } from '../components/Header';
@@ -130,18 +130,18 @@ export const WorkoutPlanScreen: React.FC<WorkoutPlanScreenProps> = ({
           <Text style={styles.planTitle} numberOfLines={1}>{plan.title}</Text>
           <View style={styles.badgesRow}>
             <View style={styles.durationBadge}>
-              <Ionicons name="time" size={13} color={Colors.cyan} />
+              <ModernIcon name="time" size={13} color={Colors.cyan} />
               <Text style={styles.durationBadgeText}>{plan.durationMinutes} min / workout</Text>
             </View>
             <View style={styles.splitBadge}>
-              <Ionicons name="fitness" size={13} color={Colors.primary} />
+              <ModernIcon name="fitness" size={13} color={Colors.primary} />
               <Text style={styles.splitBadgeText}>{plan.days.length} Days / Week</Text>
             </View>
           </View>
         </View>
 
         <TouchableOpacity style={styles.shareBtn} onPress={handleSharePlan} activeOpacity={0.7}>
-          <Ionicons name={copyFeedback ? 'checkmark' : 'share-outline'} size={18} color={copyFeedback ? Colors.primary : Colors.text} />
+          <ModernIcon name={copyFeedback ? 'checkmark' : 'share'} size={18} color={copyFeedback ? Colors.primary : Colors.text} />
           <Text style={[styles.shareBtnText, copyFeedback && { color: Colors.primary }]}>
             {copyFeedback ? 'Copied!' : 'Share'}
           </Text>
@@ -183,7 +183,7 @@ export const WorkoutPlanScreen: React.FC<WorkoutPlanScreenProps> = ({
         <View style={styles.dayHeadline}>
           <Text style={styles.dayTitleText}>{currentDay.title}</Text>
           <View style={styles.focusChip}>
-            <Ionicons name="body-outline" size={13} color={Colors.primary} />
+            <ModernIcon name="person" size={13} color={Colors.primary} />
             <Text style={styles.focusText}>Focus: {currentDay.focus}</Text>
           </View>
         </View>
@@ -192,7 +192,7 @@ export const WorkoutPlanScreen: React.FC<WorkoutPlanScreenProps> = ({
         {currentDay.warmup && currentDay.warmup.length > 0 && (
           <View style={styles.routineSection}>
             <View style={styles.routineHeader}>
-              <Ionicons name="flame-outline" size={16} color={Colors.orange} />
+              <ModernIcon name="flame" size={16} color={Colors.orange} />
               <Text style={styles.routineHeaderText}>Dynamic Warm-up (3-5 min)</Text>
             </View>
             <View style={styles.routinePills}>
@@ -215,7 +215,7 @@ export const WorkoutPlanScreen: React.FC<WorkoutPlanScreenProps> = ({
               setTimerVisible(true);
             }}
           >
-            <Ionicons name="timer" size={14} color={Colors.primary} />
+            <ModernIcon name="timer" size={14} color={Colors.primary} />
             <Text style={styles.inlineTimerText}>Rest Timer</Text>
           </TouchableOpacity>
         </View>
@@ -236,7 +236,7 @@ export const WorkoutPlanScreen: React.FC<WorkoutPlanScreenProps> = ({
         {currentDay.cooldown && currentDay.cooldown.length > 0 && (
           <View style={styles.routineSection}>
             <View style={styles.routineHeader}>
-              <Ionicons name="leaf-outline" size={16} color={Colors.cyan} />
+              <ModernIcon name="leaf" size={16} color={Colors.cyan} />
               <Text style={[styles.routineHeaderText, { color: Colors.cyan }]}>
                 Post-Workout Cool-Down & Mobility
               </Text>
@@ -258,7 +258,7 @@ export const WorkoutPlanScreen: React.FC<WorkoutPlanScreenProps> = ({
             onPress={() => setNutritionVisible(true)}
             activeOpacity={0.8}
           >
-            <Ionicons name="restaurant" size={18} color="#0B0F19" />
+            <ModernIcon name="restaurant" size={18} color="#0B0F19" />
             <Text style={styles.nutritionActionText}>View Calorie & Macro Target</Text>
           </TouchableOpacity>
 
@@ -267,7 +267,7 @@ export const WorkoutPlanScreen: React.FC<WorkoutPlanScreenProps> = ({
             onPress={onResetWorkout}
             activeOpacity={0.8}
           >
-            <Ionicons name="options-outline" size={18} color={Colors.textSecondary} />
+            <ModernIcon name="settings" size={18} color={Colors.textSecondary} />
             <Text style={styles.recalibrateText}>Adjust Biometrics / Schedule</Text>
           </TouchableOpacity>
         </View>

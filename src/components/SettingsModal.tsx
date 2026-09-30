@@ -10,7 +10,7 @@ import {
   Alert,
   Platform,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ModernIcon } from './ModernIcon';
 import { useAuth } from '../context/AuthContext';
 import { isSupabaseConfigured, setSupabaseConfig } from '../services/supabase';
 import { StorageService } from '../services/storageService';
@@ -73,11 +73,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           {/* Header */}
           <View style={styles.header}>
             <View style={styles.titleRow}>
-              <Ionicons name="settings-sharp" size={20} color={Colors.primary} />
+              <ModernIcon name="settings" size={20} color={Colors.primary} />
               <Text style={styles.title}>FitGuru Settings</Text>
             </View>
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <Ionicons name="close" size={20} color={Colors.textSecondary} />
+              <ModernIcon name="close" size={20} color={Colors.textSecondary} />
             </TouchableOpacity>
           </View>
 
@@ -85,7 +85,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             {/* Status Notification */}
             {savedStatus ? (
               <View style={styles.statusToast}>
-                <Ionicons name="checkmark-circle" size={16} color={Colors.primary} />
+                <ModernIcon name="checkmark-circle" size={16} color={Colors.primary} />
                 <Text style={styles.statusToastText}>{savedStatus}</Text>
               </View>
             ) : null}
@@ -93,7 +93,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             {/* Account Status */}
             <View style={styles.accountCard}>
               <View style={styles.avatar}>
-                <Ionicons name="person" size={20} color={Colors.primary} />
+                <ModernIcon name="person" size={20} color={Colors.primary} />
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={styles.accountEmail}>
@@ -115,7 +115,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   onClose();
                 }}
               >
-                <Ionicons name="log-out-outline" size={18} color={Colors.danger} />
+                <ModernIcon name="logout" size={18} color={Colors.danger} />
               </TouchableOpacity>
             </View>
 
@@ -128,7 +128,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               }}
               activeOpacity={0.8}
             >
-              <Ionicons name="refresh-circle" size={22} color={Colors.cyan} />
+              <ModernIcon name="refresh" size={20} color={Colors.cyan} />
               <Text style={styles.resetPlanText}>Recalibrate & Generate New Plan</Text>
             </TouchableOpacity>
 
@@ -161,7 +161,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               />
 
               <TouchableOpacity style={styles.saveBtn} onPress={handleSaveSupabase} activeOpacity={0.7}>
-                <Ionicons name="cloud-upload-outline" size={16} color="#0B0F19" />
+                <ModernIcon name="cloud-upload" size={16} color="#0B0F19" />
                 <Text style={styles.saveBtnText}>Save Supabase Config</Text>
               </TouchableOpacity>
             </View>
@@ -169,7 +169,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             {/* Backend AI Architecture Notice */}
             <View style={styles.section}>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                <Ionicons name="shield-checkmark" size={18} color={Colors.primary} />
+                <ModernIcon name="shield" size={18} color={Colors.primary} />
                 <Text style={styles.sectionTitle}>Secure Backend AI Architecture</Text>
               </View>
               <Text style={styles.sectionDescription}>

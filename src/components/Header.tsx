@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { FitGuruLogo } from './FitGuruLogo';
+import { ModernIcon } from './ModernIcon';
 import { Colors } from '../theme/colors';
 
 interface HeaderProps {
@@ -25,12 +26,10 @@ export const Header: React.FC<HeaderProps> = ({
       <View style={styles.leftRow}>
         {showBack ? (
           <TouchableOpacity onPress={onBack} style={styles.iconButton} activeOpacity={0.7}>
-            <Ionicons name="arrow-back" size={22} color={Colors.text} />
+            <ModernIcon name="arrow-back" size={20} color={Colors.text} />
           </TouchableOpacity>
         ) : (
-          <View style={styles.logoBadge}>
-            <Ionicons name="barbell" size={20} color={Colors.primary} />
-          </View>
+          <FitGuruLogo size={34} glow={false} />
         )}
         <View style={styles.titleColumn}>
           <Text style={styles.brandTitle}>{title}</Text>
@@ -45,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
             onPress={onOpenNutrition}
             activeOpacity={0.7}
           >
-            <Ionicons name="restaurant-outline" size={20} color={Colors.primary} />
+            <ModernIcon name="restaurant" size={18} color={Colors.primary} />
           </TouchableOpacity>
         )}
         {onOpenSettings && (
@@ -54,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
             onPress={onOpenSettings}
             activeOpacity={0.7}
           >
-            <Ionicons name="settings-outline" size={20} color={Colors.textSecondary} />
+            <ModernIcon name="settings" size={18} color={Colors.textSecondary} />
           </TouchableOpacity>
         )}
       </View>

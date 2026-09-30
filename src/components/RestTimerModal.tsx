@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Modal, TouchableOpacity, Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ModernIcon } from './ModernIcon';
 import * as Haptics from 'expo-haptics';
 import { Colors } from '../theme/colors';
 
@@ -98,11 +98,11 @@ export const RestTimerModal: React.FC<RestTimerModalProps> = ({
           {/* Header */}
           <View style={styles.cardHeader}>
             <View style={styles.titleRow}>
-              <Ionicons name="timer-outline" size={24} color={Colors.primary} />
+              <ModernIcon name="timer" size={24} color={Colors.primary} />
               <Text style={styles.cardTitle}>Rest Interval</Text>
             </View>
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <Ionicons name="close" size={20} color={Colors.textSecondary} />
+              <ModernIcon name="close" size={20} color={Colors.textSecondary} />
             </TouchableOpacity>
           </View>
 
@@ -141,7 +141,7 @@ export const RestTimerModal: React.FC<RestTimerModalProps> = ({
           {/* Controls */}
           <View style={styles.controlsRow}>
             <TouchableOpacity style={styles.actionBtnSecondary} onPress={resetTimer}>
-              <Ionicons name="refresh" size={20} color={Colors.textSecondary} />
+              <ModernIcon name="refresh" size={20} color={Colors.textSecondary} />
               <Text style={styles.actionBtnTextSec}>Reset</Text>
             </TouchableOpacity>
 
@@ -149,12 +149,12 @@ export const RestTimerModal: React.FC<RestTimerModalProps> = ({
               style={[styles.actionBtnPrimary, !isActive && styles.actionBtnPrimaryPaused]}
               onPress={toggleActive}
             >
-              <Ionicons name={isActive ? 'pause' : 'play'} size={22} color="#0B0F19" />
+              <ModernIcon name={isActive ? 'pause' : 'play'} size={22} color="#0B0F19" />
               <Text style={styles.actionBtnTextPrim}>{isActive ? 'Pause' : 'Start'}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.actionBtnSecondary} onPress={() => addTime(15)}>
-              <Ionicons name="add" size={20} color={Colors.primary} />
+              <ModernIcon name="add" size={20} color={Colors.primary} />
               <Text style={[styles.actionBtnTextSec, { color: Colors.primary }]}>+15s</Text>
             </TouchableOpacity>
           </View>

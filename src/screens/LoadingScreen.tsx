@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { FitGuruLogo } from '../components/FitGuruLogo';
+import { ModernIcon } from '../components/ModernIcon';
 import { Colors } from '../theme/colors';
 
 interface LoadingScreenProps {
@@ -34,11 +35,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 
   return (
     <View style={styles.container}>
-      <View style={styles.circleOuter}>
-        <View style={styles.circleInner}>
-          <Ionicons name="barbell" size={44} color={Colors.primary} />
-        </View>
-      </View>
+      <FitGuruLogo size={84} glow={true} style={{ marginBottom: 24 }} />
 
       <Text style={styles.title}>FITGURU AI</Text>
       <Text style={styles.subtitle}>Engineering your custom training program</Text>
@@ -46,7 +43,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
       <ActivityIndicator size="large" color={Colors.primary} style={{ marginVertical: 24 }} />
 
       <View style={styles.stepBox}>
-        <Ionicons name="sparkles" size={16} color={Colors.cyan} />
+        <ModernIcon name="sparkles" size={16} color={Colors.cyan} />
         <Text style={styles.stepText}>{steps[stepIndex]}</Text>
       </View>
 
